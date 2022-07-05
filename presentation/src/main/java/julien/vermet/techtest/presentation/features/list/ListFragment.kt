@@ -27,7 +27,9 @@ class ListFragment : Fragment(R.layout.fragment_list) {
             adapter.items = albums
         }
         viewModel.showAlbumDetailsEvent.observe(viewLifecycleOwner, EventObserver { album ->
-            findNavController().navigate(R.id.action_home_to_details)
+            //findNavController().navigate(R.id.action_home_to_details)
+            val action = ListFragmentDirections.actionHomeToDetails(album)
+            findNavController().navigate(action)
         })
     }
 

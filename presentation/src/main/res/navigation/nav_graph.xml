@@ -18,6 +18,10 @@
         android:id="@+id/home_details"
         android:name="julien.vermet.techtest.presentation.features.details.DetailsFragment"
         android:label="DetailsFragment"
-        tools:layout="@layout/fragment_details"/>
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="album"
+            app:argType="julien.vermet.techtest.presentation.model.AlbumUI" />
+    </fragment>
 
 </navigation>

@@ -13,8 +13,8 @@ object GradlePlugins {
     const val core_android_application = "core-android-application"
 
     //third parties
-    const val navigation_safeargs = "androidx.navigation.safeargs"
+    const val navigation_safeargs = "androidx.navigation.safeargs.kotlin"
     const val navigation_safeargs_gradle_plugin = "androidx.navigation:navigation-safe-args-gradle-plugin"
-    const val navigation_safeargs_gradle_plugin_with_version = "$navigation_safeargs_gradle_plugin:2.4.2"
+    const val navigation_safeargs_gradle_plugin_with_version = "$navigation_safeargs_gradle_plugin:2.5.0"
 
 }
