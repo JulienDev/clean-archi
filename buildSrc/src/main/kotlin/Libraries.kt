@@ -11,6 +11,7 @@ object Libraries {
         const val fragment = "androidx.fragment:fragment-ktx:1.4.1"
         const val navigation_fragment = "androidx.navigation:navigation-fragment-ktx:2.4.2"
         const val navigation_ui = "androidx.navigation:navigation-ui-ktx:2.3.5"
+        const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
     }
 
     object Google {
@@ -43,6 +44,7 @@ object Libraries {
 
     object UI {
         const val fragmentviewbindingdelegate = "com.github.Zhuinden:fragmentviewbindingdelegate-kt:1.0.0"
+        const val coil = "io.coil-kt:coil:2.1.0"
     }
 
     object Testing {

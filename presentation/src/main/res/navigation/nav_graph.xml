@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home_list"
-        android:name="julien.vermet.techtest.presentation.list.ListFragment"
+        android:name="julien.vermet.techtest.presentation.features.list.ListFragment"
         android:label="ListFragment"
         tools:layout="@layout/fragment_list">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/home_details"
-        android:name="julien.vermet.techtest.presentation.details.DetailsFragment"
+        android:name="julien.vermet.techtest.presentation.features.details.DetailsFragment"
         android:label="DetailsFragment"
         tools:layout="@layout/fragment_details"/>
 

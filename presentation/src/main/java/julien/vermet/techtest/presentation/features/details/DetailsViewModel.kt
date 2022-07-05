@@ -1,4 +1,4 @@
-package julien.vermet.techtest.presentation.details
+package julien.vermet.techtest.presentation.features.details
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.ViewModel

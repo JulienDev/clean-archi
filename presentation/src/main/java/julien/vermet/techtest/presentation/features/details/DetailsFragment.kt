@@ -1,4 +1,4 @@
-package julien.vermet.techtest.presentation.details
+package julien.vermet.techtest.presentation.features.details
 
 import android.os.Bundle
 import android.view.View
