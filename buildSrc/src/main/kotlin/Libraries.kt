@@ -13,6 +13,10 @@ object Libraries {
         const val navigation_ui = "androidx.navigation:navigation-ui-ktx:2.3.5"
     }
 
+    object Google {
+        const val material = "com.google.android.material:material:1.6.1"
+    }
+
     object DependencyInjection {
         private const val koin_version = "3.2.0"
         const val koin_core = "io.insert-koin:koin-core:$koin_version"
@@ -35,6 +39,10 @@ object Libraries {
         const val rxjava3 = "io.reactivex.rxjava3:rxjava:3.1.4"
         const val rxkotlin3 = "io.reactivex.rxjava3:rxkotlin:3.0.1"
         const val rxandroid3 = "io.reactivex.rxjava3:rxandroid:3.0.0"
+    }
+
+    object UI {
+        const val fragmentviewbindingdelegate = "com.github.Zhuinden:fragmentviewbindingdelegate-kt:1.0.0"
     }
 
     object Testing {

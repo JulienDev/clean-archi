@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/preorder_nav_graph"
+    app:startDestination="@id/home_list">
+
+    <fragment
+        android:id="@+id/home_list"
+        android:name="julien.vermet.techtest.presentation.list.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_home_to_details"
+            app:destination="@id/home_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/home_details"
+        android:name="julien.vermet.techtest.presentation.details.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details"/>
+
+</navigation>

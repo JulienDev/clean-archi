@@ -48,5 +48,7 @@ android {
 }
 
 dependencies {
-
+    implementation(project(Modules.presentation))
+    implementation(Libraries.AndroidX.app_compat)
+    implementation(Libraries.Google.material)
 }
