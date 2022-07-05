@@ -8,4 +8,5 @@ dependencies {
     implementation(Libraries.AndroidX.navigation_fragment)
     implementation(Libraries.Reactive.rxkotlin3)
     implementation(Libraries.UI.fragmentviewbindingdelegate)
+    implementation(Libraries.DependencyInjection.koin_android)
 }
