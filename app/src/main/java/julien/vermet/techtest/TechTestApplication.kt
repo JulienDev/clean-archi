@@ -1,6 +1,7 @@
 package julien.vermet.techtest
 
 import android.app.Application
+import julien.vermet.techtest.domain.domainModule
 import julien.vermet.techtest.presentation.di.presentationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -14,7 +15,7 @@ class TechTestApplication : Application() {
         startKoin{
             androidLogger()
             androidContext(this@TechTestApplication)
-            modules(presentationModule)
+            modules(presentationModule, domainModule)
         }
     }
 

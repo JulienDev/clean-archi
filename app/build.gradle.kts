@@ -49,6 +49,7 @@ android {
 
 dependencies {
     implementation(project(Modules.presentation))
+    implementation(project(Modules.domain))
     implementation(Libraries.AndroidX.app_compat)
     implementation(Libraries.Google.material)
     implementation(Libraries.DependencyInjection.koin_android)
