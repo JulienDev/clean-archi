@@ -3,3 +3,4 @@ include(
 )
 include(":presentation")
 include(":domain")
+include(":remote")
