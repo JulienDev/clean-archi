@@ -5,6 +5,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class AlbumUI(
-    val title : String,
-    val imageUrl : String
+    val albumId: Int,
+    val id: Int,
+    val title: String,
+    val url: String,
+    val thumbnailUrl: String
 ) : Parcelable

@@ -1,6 +1,6 @@
-package julien.vermet.techtest.domain.models
+package julien.vermet.techtest.data.model
 
-data class Album(
+data class AlbumEntity(
     val albumId: Int,
     val id: Int,
     val title: String,

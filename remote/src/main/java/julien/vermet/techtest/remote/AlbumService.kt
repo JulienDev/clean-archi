@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface AlbumService {
   @GET("img/shared/technical-test.json")
-  suspend fun getAlbums(): Single<List<AlbumModel>>
+  fun getAlbums(): Single<List<AlbumModel>>
 }

@@ -51,6 +51,7 @@ dependencies {
     implementation(project(Modules.presentation))
     implementation(project(Modules.domain))
     implementation(project(Modules.remote))
+    implementation(project(Modules.data))
 
     implementation(Libraries.AndroidX.app_compat)
     implementation(Libraries.Google.material)
