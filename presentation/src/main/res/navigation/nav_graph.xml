@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/home_list"
-        android:name="julien.vermet.techtest.presentation.features.list.ListFragment"
+        android:name="julien.vermet.techtest.presentation.features.list.AlbumsListFragment"
         android:label="ListFragment"
-        tools:layout="@layout/fragment_list">
+        tools:layout="@layout/fragment_albums_list">
         <action
             android:id="@+id/action_home_to_details"
             app:destination="@id/home_details" />

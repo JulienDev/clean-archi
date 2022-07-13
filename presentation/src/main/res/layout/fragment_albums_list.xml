@@ -7,11 +7,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_recyclerview"
-        android:padding="16dp"
+        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/view_list_item" />
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="3"
+        tools:listitem="@layout/album_list_item" />
 
 </FrameLayout>

@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     implementation(project(Modules.domain))
+    implementation(project(Modules.designsystem))
     implementation(Libraries.AndroidX.app_compat)
     implementation(Libraries.AndroidX.fragment)
     implementation(Libraries.AndroidX.navigation_fragment)
@@ -14,6 +15,5 @@ dependencies {
     implementation(Libraries.Reactive.rxkotlin3)
     implementation(Libraries.Reactive.rxandroid3)
     implementation(Libraries.UI.fragmentviewbindingdelegate)
-    implementation(Libraries.UI.coil)
     implementation(Libraries.DependencyInjection.koin_android)
 }
