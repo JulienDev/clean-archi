@@ -45,6 +45,7 @@ object Libraries {
     object UI {
         const val fragmentviewbindingdelegate = "com.github.Zhuinden:fragmentviewbindingdelegate-kt:1.0.0"
         const val coil = "io.coil-kt:coil:2.1.0"
+        const val lottie = "com.airbnb.android:lottie:5.2.0"
     }
 
     object Testing {

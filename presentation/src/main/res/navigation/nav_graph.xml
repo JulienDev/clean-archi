@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/home_list"
         android:name="julien.vermet.techtest.presentation.features.list.AlbumsListFragment"
-        android:label="ListFragment"
+        android:label="Your Library"
         tools:layout="@layout/fragment_albums_list">
         <action
             android:id="@+id/action_home_to_details"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/home_details"
         android:name="julien.vermet.techtest.presentation.features.details.DetailsFragment"
-        android:label="DetailsFragment"
+        android:label="Details"
         tools:layout="@layout/fragment_details">
         <argument
             android:name="album"

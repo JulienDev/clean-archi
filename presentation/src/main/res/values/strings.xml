@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="list_loading">We are loading your albums</string>
+    <string name="list_error">An error happened, please try again</string>
+</resources>
