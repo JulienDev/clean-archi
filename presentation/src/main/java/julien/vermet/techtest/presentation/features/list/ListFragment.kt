@@ -14,20 +14,19 @@ class ListFragment : Fragment(R.layout.fragment_list) {
 
     private val binding by viewBinding(FragmentListBinding::bind)
     private val viewModel: ListViewModel by viewModel()
-    private lateinit var adapter: ListAdapter
+    private lateinit var adapter: ListAlbumAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         lifecycle.addObserver(viewModel)
-        adapter = ListAdapter(requireContext()) { album ->
+        adapter = ListAlbumAdapter(requireContext()) { album ->
            viewModel.onAlbumSelected(album)
         }
         binding.listRecyclerview.adapter = adapter
         viewModel.albumsLiveData.observe(viewLifecycleOwner) { albums ->
-            adapter.items = albums
+            adapter.submitList(albums)
         }
         viewModel.showAlbumDetailsEvent.observe(viewLifecycleOwner, EventObserver { album ->
-            //findNavController().navigate(R.id.action_home_to_details)
             val action = ListFragmentDirections.actionHomeToDetails(album)
             findNavController().navigate(action)
         })
