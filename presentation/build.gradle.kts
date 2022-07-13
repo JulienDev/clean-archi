@@ -15,5 +15,6 @@ dependencies {
     implementation(Libraries.Reactive.rxkotlin3)
     implementation(Libraries.Reactive.rxandroid3)
     implementation(Libraries.UI.fragmentviewbindingdelegate)
+    implementation(Libraries.UI.coil)
     implementation(Libraries.DependencyInjection.koin_android)
 }
