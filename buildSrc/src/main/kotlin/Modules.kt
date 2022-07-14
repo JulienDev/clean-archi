@@ -5,5 +5,6 @@ object Modules {
     const val remote = ":remote"
     const val data = ":data"
     const val designsystem = ":designsystem"
+    const val cache = ":cache"
 
 }

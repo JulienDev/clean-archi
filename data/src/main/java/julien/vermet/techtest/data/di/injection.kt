@@ -9,7 +9,7 @@ import org.koin.dsl.module
 
 val dataModule = module {
 
-    single<AlbumRepository> { AlbumDataRepository(albumRemote = get(), albumMapper = get()) }
+    single<AlbumRepository> { AlbumDataRepository(albumRemote = get(), albumMapper = get(), albumCache = get()) }
     single<Mapper> { AlbumMapper() }
 
 }

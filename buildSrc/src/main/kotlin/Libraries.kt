@@ -12,6 +12,11 @@ object Libraries {
         const val navigation_fragment = "androidx.navigation:navigation-fragment-ktx:2.4.2"
         const val navigation_ui = "androidx.navigation:navigation-ui-ktx:2.3.5"
         const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
+
+        const val room_version = "2.4.2"
+        const val room_runtime = "androidx.room:room-runtime:$room_version"
+        const val room_compiler = "androidx.room:room-compiler:$room_version"
+        const val room_rxjava3 = "androidx.room:room-rxjava3:$room_version"
     }
 
     object Google {

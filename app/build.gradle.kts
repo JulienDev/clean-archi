@@ -53,6 +53,7 @@ dependencies {
     implementation(project(Modules.remote))
     implementation(project(Modules.data))
     implementation(project(Modules.designsystem))
+    implementation(project(Modules.cache))
 
     implementation(Libraries.DependencyInjection.koin_android)
 }
