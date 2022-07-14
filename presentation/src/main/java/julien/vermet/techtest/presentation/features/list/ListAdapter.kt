@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import julien.vermet.techtest.designsystem.AlbumListItemView
 import julien.vermet.techtest.designsystem.AlbumListItemViewModel
 import julien.vermet.techtest.presentation.model.AlbumUI
+import julien.vermet.techtest.presentation.model.getTransitionName
 
 class ListAlbumAdapter(
     private val context: Context,
@@ -22,6 +23,8 @@ class ListAlbumAdapter(
     override fun onBindViewHolder(holder: ListItemViewHolder, position: Int) {
         val item = getItem(position)
         val view = holder.itemView as AlbumListItemView
+        view.imageView.tag = item
+        view.imageView.transitionName = item.getTransitionName()
         val viewModel = AlbumListItemViewModel(item.url, item.title)
         view.setModel(viewModel)
         holder.itemView.setOnClickListener {

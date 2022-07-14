@@ -12,6 +12,8 @@ class AlbumListItemView : MaterialCardView {
 
     private val layoutInflater = LayoutInflater.from(context)
     private val binding = AlbumListItemBinding.inflate(layoutInflater, this)
+    val imageView get() = binding.itemImage
+    private val titleView get() = binding.itemTitle
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -26,8 +28,8 @@ class AlbumListItemView : MaterialCardView {
     }
 
     fun setModel(model : AlbumListItemViewModel) {
-        binding.itemImage.load(model.imageUrl)
-        binding.itemTitle.text = model.title
+        imageView.load(model.imageUrl)
+        titleView.text = model.title
     }
 
 }

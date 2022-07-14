@@ -3,8 +3,11 @@ package julien.vermet.techtest.presentation.features.list
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.transition.TransitionInflater
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
+import julien.vermet.techtest.designsystem.AlbumListItemView
 import julien.vermet.techtest.designsystem.EmptyViewModel
 import julien.vermet.techtest.designsystem.gone
 import julien.vermet.techtest.designsystem.utils.GridSpacingDecoration
@@ -17,17 +20,22 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AlbumsListFragment : Fragment(R.layout.fragment_albums_list) {
 
-    private val binding by viewBinding(FragmentAlbumsListBinding::bind)
     private val viewModel: ListViewModel by viewModel()
+    private val binding by viewBinding(FragmentAlbumsListBinding::bind)
+    private val recyclerView get() = binding.listRecyclerview
+    private val emptyView get() = binding.listEmptyview
     private lateinit var adapter: ListAlbumAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        postponeEnterTransition()
+
         setupList()
         lifecycle.addObserver(viewModel)
         observeListState()
         observeNavigateToDetails()
-        binding.listEmptyview.setOnRetryClickListener {
+        emptyView.setOnRetryClickListener {
             viewModel.onRetryClick()
         }
     }
@@ -36,29 +44,30 @@ class AlbumsListFragment : Fragment(R.layout.fragment_albums_list) {
         adapter = ListAlbumAdapter(requireContext()) { album ->
             viewModel.onAlbumSelected(album)
         }
-        binding.listRecyclerview.addItemDecoration(
+        recyclerView.post { startPostponedEnterTransition() }
+        recyclerView.addItemDecoration(
             GridSpacingDecoration(requireContext(), R.dimen.albums_list_spacing)
         )
-        binding.listRecyclerview.adapter = adapter
+        recyclerView.adapter = adapter
     }
 
     private fun observeListState() {
         viewModel.listStateLiveData.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is ListStateLoading -> {
-                    binding.listEmptyview.visible()
-                    binding.listRecyclerview.gone()
-                    binding.listEmptyview.setModel(EmptyViewModel(R.string.list_loading))
+                    emptyView.visible()
+                    recyclerView.gone()
+                    emptyView.setModel(EmptyViewModel(R.string.list_loading))
                 }
                 is ListStateReady -> {
-                    binding.listEmptyview.gone()
-                    binding.listRecyclerview.visible()
+                    emptyView.gone()
+                    recyclerView.visible()
                     adapter.submitList(state.albums)
                 }
                 is ListStateError -> {
-                    binding.listEmptyview.visible()
-                    binding.listRecyclerview.gone()
-                    binding.listEmptyview.setModel(EmptyViewModel(R.string.list_error, showRetry = true))
+                    emptyView.visible()
+                    recyclerView.gone()
+                    emptyView.setModel(EmptyViewModel(R.string.list_error, showRetry = true))
                 }
             }
         }
@@ -67,7 +76,9 @@ class AlbumsListFragment : Fragment(R.layout.fragment_albums_list) {
     private fun observeNavigateToDetails() {
         viewModel.showAlbumDetailsEvent.observe(viewLifecycleOwner, EventObserver { album ->
             val action = AlbumsListFragmentDirections.actionHomeToDetails(album)
-            findNavController().navigate(action)
+            val clickedAlbumImageView = requireView().findViewWithTag<View>(album)
+            val extras = FragmentNavigatorExtras(clickedAlbumImageView to clickedAlbumImageView.transitionName)
+            findNavController().navigate(action, extras)
         })
     }
 

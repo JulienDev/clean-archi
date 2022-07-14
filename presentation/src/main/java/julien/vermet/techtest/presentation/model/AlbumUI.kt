@@ -11,3 +11,5 @@ data class AlbumUI(
     val url: String,
     val thumbnailUrl: String
 ) : Parcelable
+
+fun AlbumUI.getTransitionName() = "hero_image_${id}"
