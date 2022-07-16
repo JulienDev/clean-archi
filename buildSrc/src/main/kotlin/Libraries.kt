@@ -54,5 +54,7 @@ object Libraries {
     }
 
     object Testing {
+        const val junit = "junit:junit:4.13.2"
+        const val mockk = "io.mockk:mockk:1.12.4"
     }
 }

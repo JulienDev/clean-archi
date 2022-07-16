@@ -11,4 +11,7 @@ dependencies {
     implementation(Libraries.Network.retrofit)
     implementation(Libraries.Network.retrofit_moshi)
     implementation(Libraries.Network.retrofit_rxjava3)
+
+    testImplementation(Libraries.Testing.junit)
+    testImplementation(Libraries.Testing.mockk)
 }

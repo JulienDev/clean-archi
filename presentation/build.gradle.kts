@@ -18,4 +18,6 @@ dependencies {
     implementation(Libraries.UI.fragmentviewbindingdelegate)
     implementation(Libraries.UI.coil)
     implementation(Libraries.DependencyInjection.koin_android)
+
+    testImplementation(Libraries.Testing.junit)
 }
