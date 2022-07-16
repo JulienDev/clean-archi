@@ -1,6 +1,7 @@
 plugins {
     id(GradlePlugins.core_android_library)
     id(GradlePlugins.navigation_safeargs)
+    id(GradlePlugins.kotlin_parcelize)
 }
 
 dependencies {

@@ -21,7 +21,7 @@
         app:spanCount="3"
         tools:listitem="@layout/album_list_item" />
     
-    <julien.vermet.techtest.designsystem.EmptyView
+    <julien.vermet.techtest.designsystem.empty.EmptyView
         android:id="@+id/list_emptyview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

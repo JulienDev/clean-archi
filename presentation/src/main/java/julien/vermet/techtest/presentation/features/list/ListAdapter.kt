@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import julien.vermet.techtest.designsystem.AlbumListItemView
-import julien.vermet.techtest.designsystem.AlbumListItemViewModel
+import julien.vermet.techtest.designsystem.album.AlbumListItemView
+import julien.vermet.techtest.designsystem.album.AlbumListItemViewModel
 import julien.vermet.techtest.presentation.model.AlbumUI
 import julien.vermet.techtest.presentation.model.getTransitionName
 

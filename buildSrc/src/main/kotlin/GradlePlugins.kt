@@ -1,9 +1,8 @@
 object GradlePlugins {
 
-    const val android_application = "com.android.application"
     const val kotlin = "kotlin"
     const val kotlin_kapt = "kotlin-kapt"
-    const val kotlin_android_extensions = "kotlin-android-extensions"
+    const val kotlin_parcelize = "kotlin-parcelize"
 
     const val android_tools_build_with_version = "com.android.tools.build:gradle:7.2.0"
     const val kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin"

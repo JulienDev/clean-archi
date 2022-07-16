@@ -16,21 +16,12 @@ class AlbumDataRepository(
 
     override fun getAlbums(): Single<List<Album>> {
         return albumRemote.getAlbums()
-            //.map { albums -> albums.map { album -> albumMapper.fromEntity(album) } }
             .flatMap { albums ->
                 albumCache.deleteAlbums()
                     .andThen(albumCache.insertAlbums(albums))
                     .andThen(observeAlbumFromCache())
             }
             .onErrorResumeNext { observeAlbumFromCache() }
-
-
-
-//            .onErrorResumeNext { throwable ->
-//
-//
-//                Single.error(throwable)
-//            }
     }
 
     private fun observeAlbumFromCache(): Single<List<Album>> {

@@ -1,9 +1,8 @@
-package julien.vermet.techtest.designsystem
+package julien.vermet.techtest.designsystem.album
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import coil.load
 import com.google.android.material.card.MaterialCardView
 import julien.vermet.techtest.designsystem.databinding.AlbumListItemBinding

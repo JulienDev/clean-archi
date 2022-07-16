@@ -5,13 +5,11 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import androidx.transition.TransitionInflater
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
-import julien.vermet.techtest.designsystem.AlbumListItemView
-import julien.vermet.techtest.designsystem.EmptyViewModel
-import julien.vermet.techtest.designsystem.gone
+import julien.vermet.techtest.designsystem.empty.EmptyViewModel
+import julien.vermet.techtest.designsystem.extensions.gone
 import julien.vermet.techtest.designsystem.utils.GridSpacingDecoration
-import julien.vermet.techtest.designsystem.visible
+import julien.vermet.techtest.designsystem.extensions.visible
 import julien.vermet.techtest.presentation.R
 import julien.vermet.techtest.presentation.arch.EventObserver
 import julien.vermet.techtest.presentation.databinding.FragmentAlbumsListBinding

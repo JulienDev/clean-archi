@@ -1,4 +1,4 @@
-package julien.vermet.techtest.designsystem
+package julien.vermet.techtest.designsystem.empty
 
 import androidx.annotation.StringRes
 

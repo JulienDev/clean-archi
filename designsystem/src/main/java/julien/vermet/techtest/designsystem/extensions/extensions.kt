@@ -1,4 +1,4 @@
-package julien.vermet.techtest.designsystem
+package julien.vermet.techtest.designsystem.extensions
 
 import android.view.View
 
