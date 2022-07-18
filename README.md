@@ -31,11 +31,13 @@ This project is composed of several modules, each one has its own responsibility
 
 **gradle kts** – Build scripts are written in Kotlin instead of Groovy which is very handy.
 
+**koin** – Easy way to create the dependency graph. I could have used Hilt/Dagger but Koin is so easy...
+
+**MVVM / Live Data** – Nice architecture component from Google. ViewModels are injected from the fragments using Koin. The UI can be later easily migrated to Jetpack Compose using the exact same logic.
+
 **navigation component** – By using a single activity, the navigation management can become messy if we have to deal with fragment transactions. Also help a lot to deal with configuration changes.
 
 **shared elements** – Make the transition between list and details fragments beautiful by moving the album image.
-
-**koin** – Easy way to create the dependency graph.
 
 **RxJava** – I could have used coroutines but I'm more familiar with RxJava. Used by the viewmodel, usecase, database and networking
 
