@@ -1,7 +1,9 @@
 package julien.vermet.techtest.remote.model
 
+import androidx.annotation.Keep
 import com.squareup.moshi.Json
 
+@Keep
 data class AlbumModel(
     @Json(name = "albumId")
     val albumId: Int,

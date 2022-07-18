@@ -7,6 +7,7 @@ plugins {
 dependencies {
     implementation(project(Modules.domain))
     implementation(project(Modules.designsystem))
+    implementation(project(Modules.common))
     implementation(Libraries.AndroidX.app_compat)
     implementation(Libraries.AndroidX.fragment)
     implementation(Libraries.AndroidX.navigation_fragment)
@@ -19,5 +20,5 @@ dependencies {
     implementation(Libraries.UI.coil)
     implementation(Libraries.DependencyInjection.koin_android)
 
-    testImplementation(Libraries.Testing.junit)
+    testImplementation(project(Modules.testing))
 }

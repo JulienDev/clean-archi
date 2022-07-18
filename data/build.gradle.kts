@@ -4,8 +4,9 @@ plugins {
 
 dependencies {
     implementation(project(Modules.domain))
+    implementation(project(Modules.common))
     implementation(Libraries.DependencyInjection.koin_android)
     implementation(Libraries.Reactive.rxjava3)
 
-    testImplementation(Libraries.Testing.junit)
+    testImplementation(project(Modules.testing))
 }

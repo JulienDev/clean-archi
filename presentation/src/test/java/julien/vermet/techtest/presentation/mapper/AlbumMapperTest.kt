@@ -1,7 +1,7 @@
 package julien.vermet.techtest.presentation.mapper
 
 import julien.vermet.techtest.presentation.factory.AlbumFactory
-import junit.framework.Assert.assertEquals
+import junit.framework.TestCase.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

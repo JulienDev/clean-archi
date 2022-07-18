@@ -4,7 +4,6 @@ import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.reactivex.rxjava3.core.Single
-import julien.vermet.techtest.data.model.AlbumEntity
 import julien.vermet.techtest.remote.factory.AlbumFactory
 import julien.vermet.techtest.remote.mapper.AlbumEntityMapper
 import julien.vermet.techtest.remote.model.AlbumModel

@@ -3,7 +3,7 @@ package julien.vermet.techtest.data.mapper
 import julien.vermet.techtest.data.factory.AlbumFactory
 import julien.vermet.techtest.data.model.AlbumEntity
 import julien.vermet.techtest.domain.models.Album
-import junit.framework.Assert.assertEquals
+import junit.framework.TestCase.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

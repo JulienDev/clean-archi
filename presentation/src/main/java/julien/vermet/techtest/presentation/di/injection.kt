@@ -1,7 +1,7 @@
 package julien.vermet.techtest.presentation.di
 
+import julien.vermet.techtest.common.SchedulerProvider
 import julien.vermet.techtest.domain.models.Album
-import julien.vermet.techtest.presentation.arch.SchedulerProvider
 import julien.vermet.techtest.presentation.features.details.DetailsViewModel
 import julien.vermet.techtest.presentation.features.list.ListViewModel
 import julien.vermet.techtest.presentation.mapper.AlbumMapper

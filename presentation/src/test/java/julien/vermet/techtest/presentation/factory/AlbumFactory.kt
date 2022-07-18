@@ -11,6 +11,10 @@ class AlbumFactory {
             return Album(0, 0, "title", "url", "thumbnailUrl")
         }
 
+        fun makeAlbumUI(): AlbumUI {
+            return AlbumUI(0, 0, "title", "url", "thumbnailUrl")
+        }
+
     }
 
 }

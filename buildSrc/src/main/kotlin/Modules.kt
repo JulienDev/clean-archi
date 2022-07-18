@@ -6,5 +6,7 @@ object Modules {
     const val data = ":data"
     const val designsystem = ":designsystem"
     const val cache = ":cache"
+    const val common = ":common"
+    const val testing = ":testing"
 
 }

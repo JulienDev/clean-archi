@@ -2,7 +2,6 @@ plugins {
     //can't use constants here
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-android-extensions")
 }
 
 addAppVersion()

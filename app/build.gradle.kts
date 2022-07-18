@@ -13,7 +13,6 @@ android {
         resourceConfigurations.addAll(listOf("en"))
     }
 
-
     signingConfigs {
         getByName(SigningConfig.debug) {
             storeFile = file(SigningConfig.debug_store_file)
@@ -54,6 +53,11 @@ dependencies {
     implementation(project(Modules.data))
     implementation(project(Modules.designsystem))
     implementation(project(Modules.cache))
+    implementation(project(Modules.common))
 
     implementation(Libraries.DependencyInjection.koin_android)
+    testImplementation(Libraries.DependencyInjection.koin_test)
+    testImplementation(Libraries.Testing.mockk)
+    testImplementation(Libraries.AndroidX.test_core)
+
 }

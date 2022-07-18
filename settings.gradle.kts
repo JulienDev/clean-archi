@@ -1,9 +1,11 @@
 include(
-    ":app"
+    ":app",
+    ":presentation",
+    ":domain",
+    ":remote",
+    ":data",
+    ":designsystem",
+    ":cache",
+    ":common",
+    ":testing"
 )
-include(":presentation")
-include(":domain")
-include(":remote")
-include(":data")
-include(":designsystem")
-include(":cache")

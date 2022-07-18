@@ -17,6 +17,10 @@ object Libraries {
         const val room_runtime = "androidx.room:room-runtime:$room_version"
         const val room_compiler = "androidx.room:room-compiler:$room_version"
         const val room_rxjava3 = "androidx.room:room-rxjava3:$room_version"
+
+        const val arch_core_testing = "androidx.arch.core:core-testing:2.1.0"
+        const val lifecycle_runtime_testing = "androidx.lifecycle:lifecycle-runtime-testing:2.5.0"
+        const val test_core = "androidx.test:core-ktx:1.4.0"
     }
 
     object Google {

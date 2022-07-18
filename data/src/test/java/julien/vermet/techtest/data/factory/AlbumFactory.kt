@@ -15,22 +15,6 @@ class AlbumFactory {
             return Album(0, 0, "title", "url", "thumbnailUrl")
         }
 
-        fun makeAlbumEntityList(count: Int): List<AlbumEntity> {
-            val albumEntities = mutableListOf<AlbumEntity>()
-            repeat(count) {
-                albumEntities.add(makeAlbumEntity())
-            }
-            return albumEntities
-        }
-
-        fun makeAlbumList(count: Int): List<Album> {
-            val albums = mutableListOf<Album>()
-            repeat(count) {
-                albums.add(makeAlbum())
-            }
-            return albums
-        }
-
     }
 
 }

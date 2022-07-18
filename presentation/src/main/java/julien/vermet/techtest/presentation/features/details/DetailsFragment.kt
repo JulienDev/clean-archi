@@ -1,19 +1,14 @@
 package julien.vermet.techtest.presentation.features.details
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.transition.ChangeBounds
 import androidx.transition.TransitionInflater
 import coil.load
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 import julien.vermet.techtest.presentation.R
 import julien.vermet.techtest.presentation.databinding.FragmentDetailsBinding
-import julien.vermet.techtest.presentation.features.list.ListViewModel
 import julien.vermet.techtest.presentation.model.getTransitionName
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf

@@ -1,7 +1,5 @@
 package julien.vermet.techtest.remote.factory
 
-import julien.vermet.techtest.data.model.AlbumEntity
-import julien.vermet.techtest.remote.AlbumService
 import julien.vermet.techtest.remote.model.AlbumModel
 
 class AlbumFactory {
