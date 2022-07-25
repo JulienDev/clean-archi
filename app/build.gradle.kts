@@ -53,11 +53,11 @@ dependencies {
     implementation(project(Modules.data))
     implementation(project(Modules.designsystem))
     implementation(project(Modules.cache))
-    implementation(project(Modules.common))
 
     implementation(Libraries.DependencyInjection.koin_android)
     testImplementation(Libraries.DependencyInjection.koin_test)
     testImplementation(Libraries.Testing.mockk)
     testImplementation(Libraries.AndroidX.test_core)
+    testImplementation(Libraries.Language.kotlin_coroutines_test)
 
 }

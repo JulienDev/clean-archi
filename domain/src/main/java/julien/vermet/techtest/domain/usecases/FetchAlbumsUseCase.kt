@@ -1,14 +1,14 @@
 package julien.vermet.techtest.domain.usecases
 
-import io.reactivex.rxjava3.core.Single
 import julien.vermet.techtest.domain.models.Album
 import julien.vermet.techtest.domain.repository.AlbumRepository
+import kotlinx.coroutines.flow.Flow
 
 class FetchAlbumsUseCase(
     private val albumRepository: AlbumRepository
 ) {
 
-    fun fetch() : Single<List<Album>> {
+    fun fetch() : Flow<List<Album>> {
         return albumRepository.getAlbums()
     }
 

@@ -7,18 +7,18 @@ plugins {
 dependencies {
     implementation(project(Modules.domain))
     implementation(project(Modules.designsystem))
-    implementation(project(Modules.common))
+    implementation(Libraries.Language.kotlin_coroutines_core)
+    implementation(Libraries.Language.kotlin_coroutines_android)
     implementation(Libraries.AndroidX.app_compat)
     implementation(Libraries.AndroidX.fragment)
     implementation(Libraries.AndroidX.navigation_fragment)
     implementation(Libraries.AndroidX.navigation_ui)
     implementation(Libraries.AndroidX.recyclerview)
     implementation(Libraries.Google.material)
-    implementation(Libraries.Reactive.rxkotlin3)
-    implementation(Libraries.Reactive.rxandroid3)
     implementation(Libraries.UI.fragmentviewbindingdelegate)
     implementation(Libraries.UI.coil)
     implementation(Libraries.DependencyInjection.koin_android)
 
     testImplementation(project(Modules.testing))
+    testImplementation(Libraries.Language.kotlin_coroutines_test)
 }

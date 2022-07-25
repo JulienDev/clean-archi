@@ -3,19 +3,20 @@ package julien.vermet.techtest.presentation.features.list
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleRegistry
-import io.mockk.MockKAnnotations
-import io.mockk.every
+import io.mockk.*
 import io.mockk.impl.annotations.MockK
-import io.mockk.mockk
-import io.mockk.verify
-import io.reactivex.rxjava3.core.Single
-import julien.vermet.techtest.common.TestSchedulerProvider
 import julien.vermet.techtest.domain.models.Album
 import julien.vermet.techtest.domain.usecases.FetchAlbumsUseCase
 import julien.vermet.techtest.presentation.factory.AlbumFactory
 import julien.vermet.techtest.presentation.mapper.Mapper
 import julien.vermet.techtest.presentation.model.AlbumUI
 import julien.vermet.techtest.testing.captureValues
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.*
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -23,6 +24,7 @@ import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(JUnit4::class)
 class ListViewModelTest {
 
@@ -36,46 +38,46 @@ class ListViewModelTest {
 
     @MockK
     private lateinit var mapper: Mapper<AlbumUI, Album>
-    private val schedulerProvider = TestSchedulerProvider()
-
-    private val lifecycleRegistry = LifecycleRegistry.createUnsafe(mockk())
-
+    private val dispatcher = StandardTestDispatcher()
 
     private val testAlbum = AlbumFactory.makeAlbum()
     private val testAlbumUI = AlbumFactory.makeAlbumUI()
     private val testAlbums = listOf(testAlbum, testAlbum, testAlbum)
     private val testAlbumsUI = listOf(testAlbumUI, testAlbumUI, testAlbumUI)
 
+
     @Before
     fun setUp() {
+        Dispatchers.setMain(dispatcher)
         MockKAnnotations.init(this, relaxed = true)
-        listViewModel = ListViewModel(fetchAlbumsUseCase, mapper, schedulerProvider)
-        lifecycleRegistry.addObserver(listViewModel)
+        listViewModel = ListViewModel(fetchAlbumsUseCase, mapper)
 
-        every { fetchAlbumsUseCase.fetch() } returns Single.just(testAlbums)
-        every { mapper.mapToUI(testAlbum) } returns testAlbumUI
+        coEvery { fetchAlbumsUseCase.fetch() } returns flow { emit(testAlbums) }
+        coEvery { mapper.mapToUI(testAlbum) } returns testAlbumUI
+    }
+
+
+    @After
+    fun tearDown() {
+        Dispatchers.resetMain()
     }
 
     @Test
     fun `when onCreate is called, fetch use case is called`() {
-        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
-        verify(exactly = 1) { fetchAlbumsUseCase.fetch() }
+        runTest {  }
+        coVerify(exactly = 1) { fetchAlbumsUseCase.fetch() }
     }
 
     @Test
     fun `when retry is clicked, fetch use case is called again`() {
-        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
-        listViewModel.onRetryClick()
-        verify(exactly = 2) { fetchAlbumsUseCase.fetch() }
+        runTest {  listViewModel.onRetryClick() }
+        coVerify(exactly = 2) { fetchAlbumsUseCase.fetch() }
     }
 
     @Test
     fun `when fetch sucesss, state is loading then ready`() {
         val listStateValues = listViewModel.listStateLiveData.captureValues()
-
-        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
-
-        schedulerProvider.ui().triggerActions()
+        runTest {  }
 
         assert(listStateValues[0] == ListStateLoading)
         assert(listStateValues[1] == ListStateReady(testAlbumsUI))
@@ -83,13 +85,10 @@ class ListViewModelTest {
 
     @Test
     fun `when fetch fail, state is loading then error`() {
-        every { fetchAlbumsUseCase.fetch() } returns Single.error(Exception())
+        coEvery { fetchAlbumsUseCase.fetch() } returns flow { throw Exception() }
 
         val listStateValues = listViewModel.listStateLiveData.captureValues()
-
-        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
-
-        schedulerProvider.ui().triggerActions()
+        runTest {  }
 
         assert(listStateValues[0] == ListStateLoading)
         assert(listStateValues[1] == ListStateError)

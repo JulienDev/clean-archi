@@ -4,9 +4,9 @@ plugins {
 
 dependencies {
     implementation(project(Modules.domain))
-    implementation(project(Modules.common))
     implementation(Libraries.DependencyInjection.koin_android)
-    implementation(Libraries.Reactive.rxjava3)
+    implementation(Libraries.Language.kotlin_coroutines_core)
 
     testImplementation(project(Modules.testing))
+    testImplementation(Libraries.Language.kotlin_coroutines_test)
 }

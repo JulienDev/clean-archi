@@ -6,6 +6,5 @@ include(
     ":data",
     ":designsystem",
     ":cache",
-    ":common",
     ":testing"
 )

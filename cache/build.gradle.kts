@@ -6,11 +6,10 @@ plugins {
 dependencies {
     implementation(project(Modules.data))
     implementation(Libraries.DependencyInjection.koin_android)
-    implementation(Libraries.Reactive.rxjava3)
     implementation(Libraries.AndroidX.room_runtime)
     annotationProcessor(Libraries.AndroidX.room_compiler)
     kapt(Libraries.AndroidX.room_compiler)
-    implementation(Libraries.AndroidX.room_rxjava3)
+    implementation(Libraries.AndroidX.room_coroutines)
 
     testImplementation(Libraries.Testing.junit)
 }

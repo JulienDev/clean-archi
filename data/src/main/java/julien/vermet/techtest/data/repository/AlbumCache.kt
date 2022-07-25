@@ -1,14 +1,12 @@
 package julien.vermet.techtest.data.repository
 
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Single
 import julien.vermet.techtest.data.model.AlbumEntity
 
 interface AlbumCache {
 
-    fun insertAlbums(albums: List<AlbumEntity>): Completable
+    suspend fun insertAlbums(albums: List<AlbumEntity>)
 
-    fun getAlbums(): Single<List<AlbumEntity>>
+    suspend fun getAlbums(): List<AlbumEntity>
 
-    fun deleteAlbums(): Completable
+    suspend fun deleteAlbums()
 }

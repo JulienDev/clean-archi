@@ -14,7 +14,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 val remoteModule = module {
@@ -39,14 +38,12 @@ val remoteModule = module {
     fun provideRetrofit(
         context: Context,
         okHttpClient: OkHttpClient,
-        moshiConverterFactory: MoshiConverterFactory,
-        rxJava3CallAdapterFactory: RxJava3CallAdapterFactory
+        moshiConverterFactory: MoshiConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
             .baseUrl(context.getString(R.string.base_url))
             .addConverterFactory(moshiConverterFactory)
-            .addCallAdapterFactory(rxJava3CallAdapterFactory)
             .build()
     }
 
@@ -64,12 +61,10 @@ val remoteModule = module {
         provideRetrofit(
             context = get(),
             okHttpClient = get(),
-            moshiConverterFactory = get(),
-            rxJava3CallAdapterFactory = get()
+            moshiConverterFactory = get()
         )
     }
     single { MoshiConverterFactory.create() }
-    single { RxJava3CallAdapterFactory.create() }
     single { provideAlbumService(retrofit = get()) }
     single { provideAlbumRemote(albumService = get(), albumEntityMapper = get()) }
     single<EntityMapper<AlbumModel, AlbumEntity>> { AlbumEntityMapper() }

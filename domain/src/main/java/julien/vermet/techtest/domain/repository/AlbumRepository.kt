@@ -1,10 +1,10 @@
 package julien.vermet.techtest.domain.repository
 
-import io.reactivex.rxjava3.core.Single
 import julien.vermet.techtest.domain.models.Album
+import kotlinx.coroutines.flow.Flow
 
 interface AlbumRepository {
 
-    fun getAlbums(): Single<List<Album>>
+    fun getAlbums(): Flow<List<Album>>
 
 }

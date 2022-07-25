@@ -1,17 +1,21 @@
 package julien.vermet.techtest.remote
 
 import io.mockk.MockKAnnotations
-import io.mockk.every
+import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
-import io.reactivex.rxjava3.core.Single
 import julien.vermet.techtest.remote.factory.AlbumFactory
 import julien.vermet.techtest.remote.mapper.AlbumEntityMapper
-import julien.vermet.techtest.remote.model.AlbumModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.test.setMain
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(JUnit4::class)
 class AlbumRemoteImplTest {
 
@@ -21,32 +25,26 @@ class AlbumRemoteImplTest {
     private lateinit var albumService: AlbumService
 
     private lateinit var albumRemoteImpl: AlbumRemoteImpl
+    private val dispatcher = StandardTestDispatcher()
 
     @Before
     fun setup() {
+        Dispatchers.setMain(dispatcher)
         MockKAnnotations.init(this, relaxed = true)
         albumRemoteImpl = AlbumRemoteImpl(albumService, entityMapper)
     }
 
     @Test
-    fun getAlbumsCompletes() {
-        stubAlbumServiceGetAlbums(Single.just(AlbumFactory.makeAlbumResponse()))
-        val testObserver = albumRemoteImpl.getAlbums().test()
-        testObserver.assertComplete()
-    }
-
-    @Test
-    fun getAlbumsReturnsData() {
+    fun getAlbumsReturnsData() = runTest {
         val albumResponse = AlbumFactory.makeAlbumResponse()
-        stubAlbumServiceGetAlbums(Single.just(albumResponse))
-        val albumEntities = albumResponse.map { entityMapper.mapFromRemote(it) }
+        coEvery { albumService.getAlbums() } returns albumResponse
 
-        val testObserver = albumRemoteImpl.getAlbums().test()
-        testObserver.assertValue(albumEntities)
+        val albumEntities = albumRemoteImpl.getAlbums()
+        val albumModels = albumResponse.map { model ->
+            entityMapper.mapFromRemote(model)
+        }
+
+        assert(albumEntities == albumModels)
     }
 
-    private fun stubAlbumServiceGetAlbums(single: Single<List<AlbumModel>>) {
-        every { albumService.getAlbums() } returns single
-    }
-    
 }

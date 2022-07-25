@@ -3,6 +3,10 @@ object Libraries {
     object Language {
         const val kotlin_version = "1.6.21"
         const val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        const val coroutines_version = "1.6.4"
+        const val kotlin_coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+        const val kotlin_coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+        const val kotlin_coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
     }
 
     object AndroidX {
@@ -16,7 +20,7 @@ object Libraries {
         const val room_version = "2.4.2"
         const val room_runtime = "androidx.room:room-runtime:$room_version"
         const val room_compiler = "androidx.room:room-compiler:$room_version"
-        const val room_rxjava3 = "androidx.room:room-rxjava3:$room_version"
+        const val room_coroutines = "androidx.room:room-ktx:$room_version"
 
         const val arch_core_testing = "androidx.arch.core:core-testing:2.1.0"
         const val lifecycle_runtime_testing = "androidx.lifecycle:lifecycle-runtime-testing:2.5.0"
@@ -42,14 +46,14 @@ object Libraries {
         private const val retrofit_version = "2.9.0"
         const val retrofit = "com.squareup.retrofit2:retrofit:$retrofit_version"
         const val retrofit_moshi = "com.squareup.retrofit2:converter-moshi:$retrofit_version"
-        const val retrofit_rxjava3 = "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
+        //const val retrofit_rxjava3 = "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
     }
 
-    object Reactive {
-        const val rxjava3 = "io.reactivex.rxjava3:rxjava:3.1.4"
-        const val rxkotlin3 = "io.reactivex.rxjava3:rxkotlin:3.0.1"
-        const val rxandroid3 = "io.reactivex.rxjava3:rxandroid:3.0.0"
-    }
+//    object Reactive {
+//        const val rxjava3 = "io.reactivex.rxjava3:rxjava:3.1.4"
+//        const val rxkotlin3 = "io.reactivex.rxjava3:rxkotlin:3.0.1"
+//        const val rxandroid3 = "io.reactivex.rxjava3:rxandroid:3.0.0"
+//    }
 
     object UI {
         const val fragmentviewbindingdelegate = "com.github.Zhuinden:fragmentviewbindingdelegate-kt:1.0.0"
